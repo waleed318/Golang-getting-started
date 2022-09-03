@@ -1,6 +1,8 @@
 <h1 align="center">Golang-getting-started</h1>
 
-<h5></h5>
+<h5>What's the project is about?</h5>
+Practice project to learn basics of golang. Learn about golang datastructures, array, functions.
+It takes the user input( name, email, phonenumber ) store in global array and display them
 
 <h3>Things I learnt about golang</h3>
 
