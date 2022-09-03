@@ -1,7 +1,8 @@
 <h1 align="center">Golang-getting-started</h1>
 
 <h3>What's the project is about?</h3>
-Practice project to learn basics of golang. Learn about golang datastructures, array, functions.
+
+I want to learn Devops as I have noticed It's an emerging field. I have watched roadmap of Devops and noticed that most of the tools of devops are made in Golang. So I mad a practice project to learn basics of golang. Learn about golang datastructures, array, functions.
 It takes the user input( name, email, phonenumber ) store in global array and display them
 
 <h3>Things I learnt about golang</h3>
@@ -32,6 +33,7 @@ $ go build
 ```
 $ go run main.go
 ```
+ @Data science, python devloper, tech enthusiast, learning devops
 
  💬 Ask me about **Python, Data Science**
 
