@@ -33,7 +33,7 @@ $ go run main.go
 
  💬 Ask me about **Python, Data Science**
 
- 📫 How to reach me **waleedahmad318@gmai;.com**
+ 📫 How to reach me **waleedahmad318@gmail.com**
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
