@@ -1,9 +1,11 @@
 <h1 align="center">Golang-getting-started</h1>
 
-<h3>What's the project is about?</h3>
+<h3>Why I am learning devops?</h3>
 
 I want to learn Devops as I have noticed It's an emerging field. I have watched roadmap of Devops and noticed that most of the tools of devops are made in Golang. So I mad a practice project to learn basics of golang. Learn about golang datastructures, array, functions.
-It takes the user input( name, email, phonenumber ) store in global array and display them
+
+<h3>What's the project is about?</h3>
+This is a basic Library Book shelf Management system it adds book in 2 dimensional map and displays them in order. Asks about the name of the book, author of the book and published date.
 
 <h3>Things I learnt about golang</h3>
 
@@ -14,6 +16,12 @@ It takes the user input( name, email, phonenumber ) store in global array and di
 - 🤝 Golang has concurrency which makes him faster than any other language
 
 - 👌 Fast compiled time
+
+- There are four types of data structures in Go(arrays,slices,map,struct):
+    - 👍 Arrays are used to store fixed numbers of elements.
+    - 👐 In Slices, no need to specify length
+    - 💪 Maps are key value pair to an element.
+    - 😍 Structs are go's OOP
 
 <h3> How to run Project </h3>
 
