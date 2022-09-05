@@ -12,6 +12,9 @@ This is a basic Library Book shelf Management system it adds book in 2 dimension
 - 🌱 Golang is statically typed but feels like dynamic(e.g you don't have to specify the variable's datatype)
 
 - 👯 Golang does not strictly support object orientation but it has lightweight OOP
+    - 💼 Go lang has methods to implement Object oriented Programming
+    - 🥢 Go Methods are similar to go functions with minor difference 
+    - 🔧 Methods Contain a reciever argument in it
 
 - 🤝 Golang has concurrency which makes him faster than any other language
 
