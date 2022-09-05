@@ -2,35 +2,30 @@ package main
 
 import (
 	"fmt"
+
+	"example.com/packages/mymodule"
 )
 
 var totalbookscount int = 1
 
-type BookdataStore struct {
-	name   string
-	author string
-	pbdate string
-}
-
 func main() {
 	var choice int = 1
-	books := BookdataStore{}
+
 	for choice == 1 {
-		var name string
-		var author string
-		var pbdate string
+		var name_ string
+		var auth string
+		var date string
 		fmt.Printf("Enter Book Name: ")
-		fmt.Scanln(&name)
+		fmt.Scanln(&name_)
 		fmt.Printf("Enter Book Author name: ")
-		fmt.Scanln(&author)
+		fmt.Scanln(&auth)
 		fmt.Printf("Enter Publish Date: ")
-		fmt.Scanln(&pbdate)
-		books.name = name
-		books.author = author
-		books.pbdate = pbdate
-		fmt.Println("Book Name: ", books.name)
-		fmt.Println("Publish date: ", books.pbdate)
-		fmt.Println("Author: ", books.author)
+		fmt.Scanln(&date)
+		books := mymodule.BookdataStore{}
+		books.SetValues(name_, auth, date)
+		fmt.Println("Book Name: ", books.GetName())
+		fmt.Println("Publish date: ", books.Getauthor())
+		fmt.Println("Author: ", books.Getpbdate())
 		totalbookscount++
 		fmt.Printf("Do you want to enter another book (yes:1,no:0) : ")
 		fmt.Scanln(&choice)
