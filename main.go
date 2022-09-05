@@ -1,28 +1,20 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 var totalbookscount int = 1
 
-//Declaring 2 dimensional map(map->map->string)
-var booksstoremap = map[string]map[string]string{}
-
-//created a temprary map and append that map into new count books
-func addbook(name string, author string, pbdate string) {
-	// temparray := [3]string{name, email, ph}
-	tempmap := map[string]string{
-		"BookName":    name,
-		"Author":      author,
-		"PublishDate": pbdate,
-	}
-
-	bookNo := fmt.Sprint("book_", totalbookscount)
-	booksstoremap[bookNo] = tempmap
-	totalbookscount++
+type BookdataStore struct {
+	name   string
+	author string
+	pbdate string
 }
 
 func main() {
 	var choice int = 1
+	books := BookdataStore{}
 	for choice == 1 {
 		var name string
 		var author string
@@ -33,17 +25,14 @@ func main() {
 		fmt.Scanln(&author)
 		fmt.Printf("Enter Publish Date: ")
 		fmt.Scanln(&pbdate)
-
-		addbook(name, author, pbdate)
-
+		books.name = name
+		books.author = author
+		books.pbdate = pbdate
+		fmt.Println("Book Name: ", books.name)
+		fmt.Println("Publish date: ", books.pbdate)
+		fmt.Println("Author: ", books.author)
+		totalbookscount++
 		fmt.Printf("Do you want to enter another book (yes:1,no:0) : ")
 		fmt.Scanln(&choice)
-	}
-	// Looping through 2 Dimensional Maps
-	for key, element := range booksstoremap {
-		fmt.Println(key, " : ")
-		for index, element := range element {
-			fmt.Println("\t", index, " : ", element)
-		}
 	}
 }
