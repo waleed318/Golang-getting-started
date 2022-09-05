@@ -27,7 +27,7 @@ This is a basic Library Book shelf Management system it adds book in 2 dimension
 
 #### clone the project
  ```
- $ git clone "url"
+ $ git clone https://github.com/waleed318/Golang-getting-started.git
  ```
 #### change directory to Golang-getting-started 
 ```
