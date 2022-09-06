@@ -2,7 +2,13 @@
 
 <h3>Why I am learning devops?</h3>
 
-I want to learn Devops as I have noticed It's an emerging field. I have watched roadmap of Devops and noticed that most of the tools of devops are made in Golang. So I mad a practice project to learn basics of golang. Learn about golang datastructures, array, functions.
+I want to learn Devops as I have noticed It's an emerging field. I have watched roadmap of Devops and noticed that most of the tools of devops are made in Golang. So I made a practice project to learn basics of golang. 
+Created Web Server in Golang
+- <h4>Home Page</h4>
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/0skTV7Z/Home.jpg" alt="Home" ></a>
+- <h4>Add Product page</h4>
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/wr7Dv3x/AddBooks.jpg" alt="AddBooks" ></a>
+- <h4>Store Product Data Structure</h4>
 
 <h3>What's the project is about?</h3>
 This is a basic Library Book shelf Management system it adds book in 2 dimensional map and displays them in order. Asks about the name of the book, author of the book and published date.
