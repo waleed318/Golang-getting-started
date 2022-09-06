@@ -7,7 +7,6 @@ type BookdataStore struct {
 }
 
 func (e *BookdataStore) SetValues(name_ string, auth string, date string) string {
-
 	e.name = name_
 	e.author = auth
 	e.pbdate = date

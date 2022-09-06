@@ -1,0 +1,37 @@
+<!-- forms.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    
+</head>
+<body>
+<header >
+    <nav >
+        <ul>
+            <li><a class="active" href="/">Shop</a></li>
+            <li><a href="/add-product">Add Product</a></li>
+            
+        </ul>
+    </nav>
+</header>
+<main>
+{{if .Success}}
+    <h1>Thanks for your message!</h1>
+{{else}}
+    <h1>Add Books</h1>
+    <form method="POST">
+        <label>Name:</label><br />
+        <input type="text" name="name"><br />
+        <label>Author:</label><br />
+        <input type="text" name="author"><br />
+        <label>Publish Date:</label><br />
+        <input name="pbdate"></input><br />
+        <input type="submit">
+    </form>
+{{end}}
+</main>
+</body>
