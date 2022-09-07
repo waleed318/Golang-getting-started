@@ -22,3 +22,12 @@ func (e *BookdataStore) Getauthor() string {
 func (e *BookdataStore) Getpbdate() string {
 	return e.pbdate
 }
+
+type BookList struct {
+	Items []BookdataStore
+}
+
+func (box *BookList) AddItem(item BookdataStore) []BookdataStore {
+	box.Items = append(box.Items, item)
+	return box.Items
+}

@@ -5,33 +5,55 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
     <title>Add Product</title>
     
 </head>
 <body>
 <header >
-    <nav >
-        <ul>
-            <li><a class="active" href="/">Shop</a></li>
-            <li><a href="/add-product">Add Product</a></li>
-            
-        </ul>
-    </nav>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/">Book Shop</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/add-product">Add Books</a></li>
+          </ul>
+        </div>
+      </nav>
 </header>
 <main>
 {{if .Success}}
-    <h1>Thanks for your message!</h1>
+    <h1>New Product Successfully added!</h1>
 {{else}}
-    <h1>Add Books</h1>
+    <div class="card" style="width: 60rem;margin: 10rem;margin-left: 40rem;">
+        <h1>Add Books</h1>
     <form method="POST">
-        <label>Name:</label><br />
-        <input type="text" name="name"><br />
-        <label>Author:</label><br />
-        <input type="text" name="author"><br />
-        <label>Publish Date:</label><br />
-        <input name="pbdate"></input><br />
-        <input type="submit">
-    </form>
+        <div class="form-group" style="width: 60rem;">
+          <label for="exampleInputEmail1">Book Name</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Book Name" name="name">
+        </div>
+        <div class="form-group" style="width: 60rem;">
+          <label for="exampleInputPassword1">Author Name</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Author Name" name="author">
+        </div>
+        <div class='form-group' style='width: 48 rem;'>
+            <label for="exampleInputPassword1">Publish Date</label>
+            <input type='text' class="form-control" data-date-language="pt" id='datepicker' placeholder="Select Date" name="pbdate">
+            <script type="text/javascript">
+                $(document).ready(function(){
+                 $('#datepicker').datepicker({
+                  "format": "mm-dd-yy",
+                  "keyboardNavigation": false
+                 }); 
+                });
+                </script>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      </div>
 {{end}}
 </main>
 </body>

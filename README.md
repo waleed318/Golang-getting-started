@@ -5,9 +5,9 @@
 I want to learn Devops as I have noticed It's an emerging field. I have watched roadmap of Devops and noticed that most of the tools of devops are made in Golang. So I made a practice project to learn basics of golang. 
 Created Web Server in Golang
 - <h4>Home Page</h4>
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/0skTV7Z/Home.jpg" alt="Home" ></a>
+<a href="https://ibb.co/QkjMSGr"><img src="https://i.ibb.co/8b49vV6/Home.jpg" alt="Home" ></a>
 - <h4>Add Product page</h4>
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/wr7Dv3x/AddBooks.jpg" alt="AddBooks" ></a>
+<a href="https://ibb.co/dGVTXZ6"><img src="https://i.ibb.co/r4zjq9M/AddBooks.jpg" alt="AddBooks" ></a>
 - <h4>Store Product Data Structure</h4>
 
 <h3>What's the project is about?</h3>

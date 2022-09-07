@@ -4,22 +4,91 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+    <link rel="stylesheet" href="style.css">
     <title>Home</title>
     
 </head>
 <body>
     <header >
-        <nav >
-            <ul>
-                <li><a class="active" href="/">Shop</a></li>
-                <li><a href="/add-product">Add Product</a></li>
-                
-            </ul>
-        </nav>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="/">Book Shop</a>
+              </div>
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="/">Home</a></li>
+                <li><a href="/add-product">Add Books</a></li>
+                </ul>
+            </div>
+          </nav>
     </header>
     <main>
-        <H1>My Products</H1>
-        <p>List of all Products.....</p>
+        <div class="container d-flex justify-content-center mt-50 mb-50">
+            <div class="row">
+               <div class="col-md-4 mt-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-img-actions">
+                                <img src="https://cdn.pixabay.com/photo/2016/03/31/20/51/book-1296045_960_720.png" class="card-img img-fluid" width="250" height="350" alt="" style="margin-left: 20;">  
+                            </div>
+                        </div>
+                        <div class="card-body bg-light text-center">
+                            <div class="mb-2">
+                                <h6 class="font-weight-semibold mb-2">
+                                    <a href="#" class="text-default mb-2" data-abc="true">Go Lang Getting Started</a>
+                                </h6>
+                                <a href="#" class="text-muted" data-abc="true">Computer Programming</a>
+                            </div>
+                            <h3 class="mb-0 font-weight-semibold">$150.99</h3>
+                            <div>
+                                <i class="fa fa-star star"></i>
+                                <i class="fa fa-star star"></i>
+                                <i class="fa fa-star star"></i>
+                                <i class="fa fa-star star"></i>
+                            </div>
+                            <div class="text-muted mb-3">34 reviews</div>
+                            <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
+                        </div>
+                    </div> 
+               </div>
+            {{range .bookslist}}
+                <div class="col-md-4 mt-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-img-actions">
+                                <img src="https://cdn.pixabay.com/photo/2016/03/31/20/51/book-1296045_960_720.png" class="card-img img-fluid" width="250" height="350" alt="" style="margin-left: 20;">  
+                            </div>
+                        </div>
+                        <div class="card-body bg-light text-center">
+                            <div class="mb-2">
+                                <h6 class="font-weight-semibold mb-2">
+                                    <a href="#" class="text-default mb-2" data-abc="true">{{ .name}}</a>
+                                </h6>
+                                <a href="#" class="text-muted" data-abc="true">Computer Programming</a>
+                                <a href="#" class="text-muted" data-abc="true">{{ .author}}</a>
+                            </div>
+                            <h3 class="mb-0 font-weight-semibold">$150.99</h3>
+                            <div>
+                                <i class="fa fa-star star"></i>
+                                <i class="fa fa-star star"></i>
+                                <i class="fa fa-star star"></i>
+                                <i class="fa fa-star star"></i>
+                            </div>
+                            <div class="text-muted mb-3">{{ .pbdate}}</div>
+                            <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
+                        </div>
+                    </div>     
+                </div>
+            {{end}}
+            </div>
+        </div>
     </main>
 </body>
+
 </html>

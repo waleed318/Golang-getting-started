@@ -10,6 +10,14 @@ import (
 	"example.com/packages/mymodule"
 )
 
+var items = []mymodule.BookdataStore{}
+var bookslist = mymodule.BookList{items}
+
+type Context struct {
+	Success   bool
+	bookslist mymodule.BookList
+}
+
 // main func
 func main() {
 	fmt.Println("Starting Server at port 8080")
@@ -22,7 +30,7 @@ func main() {
 			return
 		}
 
-		fileserver.Execute(w, struct{ Success bool }{true})
+		fileserver.Execute(w, bookslist)
 	})
 
 	//Initializing Form Html File
@@ -41,7 +49,13 @@ func main() {
 		fmt.Println("Author Name: ", books.Getauthor())
 		fmt.Println("Publish Date: ", books.Getpbdate())
 		fmt.Print("\n")
-
+		bookslist.AddItem(books)
+		fmt.Println(bookslist)
+		//  counter++
+		// context := Context{
+		// 	Success:   true,
+		// 	bookslist: bookslist,
+		// }
 		tmpl.Execute(w, struct{ Success bool }{true})
 	})
 
