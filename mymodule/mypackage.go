@@ -23,11 +23,16 @@ func (e *BookdataStore) Getpbdate() string {
 	return e.pbdate
 }
 
+type TempBook struct {
+	name   string
+	author string
+	pbdate string
+}
 type BookList struct {
-	Items []BookdataStore
+	Items []TempBook
 }
 
-func (box *BookList) AddItem(item BookdataStore) []BookdataStore {
+func (box *BookList) AddItem(item TempBook) []TempBook {
 	box.Items = append(box.Items, item)
 	return box.Items
 }
