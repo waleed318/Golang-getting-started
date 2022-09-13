@@ -40,20 +40,7 @@ This is a basic Library Book shelf Management system it adds book in 2 dimension
  $ git clone https://github.com/waleed318/Golang-getting-started.git
  ```
  
-<p>For this Project I have used elephantsql database. Here is the complete <a href="https://www.elephantsql.com/docs/">documentation</a>
-<br><strong>1. Generate ElephantSQL Auth URL and paste in .env variable</strong></p>
-
-#### Create your database table in ElephantSQL Console Browser section
-
- ```
- CREATE TABLE book_store(
- ID INT PRIMARY KEY,
- Name VARCHAR(256),
- Author VARCHAR(256),
- Pbdate VARCHAR(256)
- );
- ```
-
+<p>For this Project I have used mongoDB. Here is the complete <a href="https://www.mongodb.com/docs/drivers/go/current/">documentation</a></p>
 
 #### Change directory to Golang-getting-started 
 ```
