@@ -1,41 +1,43 @@
 package main
 
 import (
-	"database/sql"
+	"context"
 	"fmt"
 	"html/template"
 	"log"
 	"net/http"
-	"strconv"
 
 	"github.com/subosito/gotenv"
 	"github.com/waleed318/Golang-getting-started/driver"
 	"github.com/waleed318/Golang-getting-started/helper"
 	"github.com/waleed318/Golang-getting-started/models"
-	"github.com/waleed318/Golang-getting-started/repository/bookRepository"
+	_ "github.com/waleed318/Golang-getting-started/repository/bookRepository"
+	"go.mongodb.org/mongo-driver/bson"
 )
-
-var db *sql.DB
 
 func init() {
 	helper.LogFatal(gotenv.Load())
 }
 
 func main() {
-	db = driver.ConnectDB()
-	// var books []models.Book
+	client := driver.ConnectMongo()
+	booksCollection := client.Database("book_store").Collection("books")
 
-	// controller := controllers.Controller{}
-
-	// router := mux.NewRouter()
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		fileserver := template.Must(template.ParseFiles("./static/index.html"))
-		var book models.Book
-		var books = []models.Book{}
 
-		bookRepo := bookRepository.BookRepository{}
-		books = bookRepo.GetBooks(db, book, books)
-		fmt.Println(books)
+		// BookRepo := bookRepository.BookRepo{}
+		// uc := BookRepo.getAllBooks(usersCollection)
+		var books []models.BookModel
+		Cursor, err := booksCollection.Find(context.TODO(), bson.M{})
+		if err != nil {
+			log.Fatal(err)
+		}
+		if err = Cursor.All(context.TODO(), &books); err != nil {
+			panic(err)
+		}
+		// fmt.Println(books)
+
 		fileserver.Execute(w, books)
 	})
 
@@ -45,29 +47,21 @@ func main() {
 			tmpl.Execute(w, nil)
 			return
 		}
+		manyContacts := models.BookModel{
+			Name:   r.FormValue("name"),
+			Author: r.FormValue("author"),
+			Pbdate: r.FormValue("pbdate"),
+		}
 
-		var book models.Book
-
-		fmt.Println(r.Body)
-		// helper.LogFatal(json.NewDecoder(r.Body).Decode(&book))
-
-		fmt.Println("Got here")
-		iD, _ := strconv.Atoi(r.FormValue("ID"))
-
-		book.ID = iD
-		book.Name = r.FormValue("name")
-		book.Author = r.FormValue("author")
-		book.Pbdate = r.FormValue("pbdate")
-
-		fmt.Println(book)
-
-		bookRepo := bookRepository.BookRepository{}
-		bookRepo.AddBook(db, book)
+		result, err := booksCollection.InsertOne(context.TODO(), manyContacts)
+		if err != nil {
+			panic(err)
+		}
+		fmt.Println("Object Inserted: ", result.InsertedID)
 
 		tmpl.Execute(w, struct{ Success bool }{true})
 	})
 	println("Server started on port 8080")
-	// helper.LogFatal(http.ListenAndServe(":80", router))
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		log.Fatal(err)
 	}

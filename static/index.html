@@ -29,36 +29,7 @@
           </nav>
     </header>
     <main>
-        <!-- <h1>{{.}}</h1> -->
-        <div class="container d-flex justify-content-center mt-50 mb-50">
-            <div class="row">
-               <div class="col-md-4 mt-2">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="card-img-actions">
-                                <img src="https://cdn.pixabay.com/photo/2016/03/31/20/51/book-1296045_960_720.png" class="card-img img-fluid" width="250" height="350" alt="" style="margin-left: 20;">  
-                            </div>
-                        </div>
-                        <div class="card-body bg-light text-center">
-                            <div class="mb-2">
-                                <h6 class="font-weight-semibold mb-2">
-                                    <a href="#" class="text-default mb-2" data-abc="true">Go Lang Getting Started</a>
-                                </h6>
-                                <a href="#" class="text-muted" data-abc="true">Computer Programming</a>
-                            </div>
-                            <h3 class="mb-0 font-weight-semibold">$150.99</h3>
-                            <div>
-                                <i class="fa fa-star star"></i>
-                                <i class="fa fa-star star"></i>
-                                <i class="fa fa-star star"></i>
-                                <i class="fa fa-star star"></i>
-                            </div>
-                            <div class="text-muted mb-3">34 reviews</div>
-                            <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
-                        </div>
-                    </div> 
-               </div>
-            {{range .Items}}
+            {{range .}}
                 <div class="col-md-4 mt-2">
                     <div class="card">
                         <div class="card-body">
@@ -69,10 +40,10 @@
                         <div class="card-body bg-light text-center">
                             <div class="mb-2">
                                 <h6 class="font-weight-semibold mb-2">
-                                        <a href="#" class="text-default mb-2" data-abc="true">{{.Items.name}}</a>
+                                        <a href="#" class="text-default mb-2" data-abc="true">{{.Name}}</a>
                                 </h6>
                                 <a href="#" class="text-muted" data-abc="true">Computer Programming</a>
-                                <a href="#" class="text-muted" data-abc="true">{{.author}}</a>
+                                <a href="#" class="text-muted" data-abc="true">{{.Author}}</a>
                             </div>
                             <h3 class="mb-0 font-weight-semibold">$150.99</h3>
                             <div>
@@ -81,7 +52,7 @@
                                 <i class="fa fa-star star"></i>
                                 <i class="fa fa-star star"></i>
                             </div>
-                            <div class="text-muted mb-3">{{.pbdate}}</div>
+                            <div class="text-muted mb-3">{{.Pbdate}}</div>
                             <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
                         </div>
                     </div>     

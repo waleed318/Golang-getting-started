@@ -1,11 +1,12 @@
 package models
 
-type Book struct {
-	ID     int    `json:"ID"`
-	Name   string `json:"name"`
-	Author string `json:"author"`
-	Pbdate string `json:"pbdate"`
-	// ISBN       string   `isbn`
-	// Category   string   `category`
-	// Publisher  string   `publisher`
+import (
+	"go.mongodb.org/mongo-driver/bson/primitive"
+)
+
+type BookModel struct {
+	ID     primitive.ObjectID `bson:"_id,omitempty"`
+	Name   string             `bson:"name,omitempty"`
+	Author string             `bson:"author,omitempty"`
+	Pbdate string             `bson:"pbdate,omitempty"`
 }
