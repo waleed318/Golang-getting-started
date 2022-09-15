@@ -6,6 +6,7 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"reflect"
 
 	"github.com/subosito/gotenv"
 	"github.com/waleed318/Golang-getting-started/driver"
@@ -13,6 +14,7 @@ import (
 	"github.com/waleed318/Golang-getting-started/models"
 	_ "github.com/waleed318/Golang-getting-started/repository/bookRepository"
 	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
 func init() {
@@ -36,7 +38,7 @@ func main() {
 		if err = Cursor.All(context.TODO(), &books); err != nil {
 			panic(err)
 		}
-		// fmt.Println(books)
+		fmt.Println(books)
 
 		fileserver.Execute(w, books)
 	})
@@ -61,8 +63,24 @@ func main() {
 
 		tmpl.Execute(w, struct{ Success bool }{true})
 	})
-	println("Server started on port 8080")
+	http.HandleFunc("/delete", func(w http.ResponseWriter, r *http.Request) {
+		tmpl := template.Must(template.ParseFiles("./static/delete.html"))
+		// var id primitive.ObjectID
+		id := r.URL.Query().Get("id")
+		idPrimitive, _ := primitive.ObjectIDFromHex(id[10:34])
+		fmt.Println(reflect.TypeOf(idPrimitive))
+		res, err := booksCollection.DeleteOne(context.TODO(), bson.M{"_id": idPrimitive})
+		fmt.Println("Deleted :", res)
+
+		if err != nil {
+			log.Fatal("DeleteOne() ERROR:", err)
+		}
+		tmpl.Execute(w, struct{ Success bool }{true})
+
+	})
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		log.Fatal(err)
 	}
+	println("Server started on port 8080")
+
 }

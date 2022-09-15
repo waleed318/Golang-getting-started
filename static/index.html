@@ -29,15 +29,21 @@
           </nav>
     </header>
     <main>
+        <!-- <h1>{{.}}</h1> -->
+        <div class="container d-flex justify-content-center mt-50 mb-50">
+            <div class="row">
             {{range .}}
-                <div class="col-md-4 mt-2">
+                <div class="col-md-4 mt-2" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                transition: 1s;
+                width: 30%;
+                border-radius: 25px;">
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-body" style="margin-left: 30px;">
                             <div class="card-img-actions">
                                 <img src="https://cdn.pixabay.com/photo/2016/03/31/20/51/book-1296045_960_720.png" class="card-img img-fluid" width="250" height="350" alt="" style="margin-left: 20;">  
                             </div>
                         </div>
-                        <div class="card-body bg-light text-center">
+                        <div class="card-body bg-light text-center" style="padding: 20px 16px;">
                             <div class="mb-2">
                                 <h6 class="font-weight-semibold mb-2">
                                         <a href="#" class="text-default mb-2" data-abc="true">{{.Name}}</a>
@@ -53,7 +59,8 @@
                                 <i class="fa fa-star star"></i>
                             </div>
                             <div class="text-muted mb-3">{{.Pbdate}}</div>
-                            <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
+                            <button type="button" class="btn btn-primary" ><a style="color:white" href="/delete?id={{.ID}}">Delete</a>   </button>
+                            <!-- <button type="button" action="/delete?id={{ .Id }}" >Delete</button> -->
                         </div>
                     </div>     
                 </div>
@@ -62,5 +69,8 @@
         </div>
     </main>
 </body>
-
 </html>
+
+         
+
+ 
